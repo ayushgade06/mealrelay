@@ -1,0 +1,76 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ink: #1B1F3B;
+  --color-ink-soft: #4A4F6E;
+  --color-paper: #FBFBF8;
+  --color-steel: #E7E9EE;
+  --color-steel-dark: #C9CDD8;
+  --color-turmeric: #F2B632;
+  --color-turmeric-soft: #FDF1D3;
+  --color-chili: #C8361D;
+  --color-chili-soft: #FBE4DF;
+  --color-leaf: #2F7D4F;
+  --color-leaf-soft: #DFF0E5;
+  --color-sky: #3557A6;
+  --color-sky-soft: #E2E8F6;
+
+  --font-display: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Figtree', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html { color-scheme: light; }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-feature-settings: 'tnum' 1;
+  }
+  h1, h2, h3 { @apply font-display; text-wrap: balance; letter-spacing: -0.02em; }
+  p { text-wrap: pretty; }
+  :focus-visible { outline: 3px solid var(--color-sky); outline-offset: 2px; border-radius: 6px; }
+  ::selection { background: var(--color-turmeric); color: var(--color-ink); }
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold
+    transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+@layer components {
+  .btn-primary { @apply btn bg-ink text-paper hover:bg-ink-soft; }
+  .btn-accent { @apply btn bg-turmeric text-ink hover:brightness-95; }
+  .btn-ghost { @apply btn border border-steel-dark bg-white text-ink hover:bg-steel; }
+  .btn-danger { @apply btn border border-chili/40 bg-white text-chili hover:bg-chili-soft; }
+
+  .field { @apply block w-full rounded-xl border border-steel-dark bg-white px-3.5 py-2.5 text-base text-ink placeholder:text-ink-soft/60; }
+  .field[aria-invalid='true'] { @apply border-chili; }
+  .label { @apply mb-1.5 block text-sm font-semibold; }
+
+  /* The rescue ticket: a kitchen order slip with a perforated top edge. */
+  .ticket {
+    @apply relative rounded-b-2xl bg-white;
+    box-shadow: 0 1px 0 var(--color-steel-dark), 0 12px 24px -18px rgb(27 31 59 / 0.45);
+  }
+  .ticket::before {
+    content: '';
+    @apply absolute inset-x-0 -top-2 h-2;
+    background: radial-gradient(circle at 6px 0, transparent 5px, white 5.5px) 0 0 / 12px 8px repeat-x;
+  }
+}
+
+@keyframes drop-in {
+  from { transform: translateY(-14px) rotate(-1.5deg); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+.drop-in { animation: drop-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+
+@keyframes stamp {
+  0% { transform: scale(1.6) rotate(-14deg); opacity: 0; }
+  100% { transform: scale(1) rotate(-8deg); opacity: 1; }
+}
+.stamp { animation: stamp 0.35s cubic-bezier(0.3, 1.4, 0.5, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .drop-in, .stamp { animation: none; }
+  * { transition: none !important; }
+}
