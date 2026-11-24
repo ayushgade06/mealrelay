@@ -4,6 +4,8 @@
 
 MealRelay is a working prototype of a surplus-food rescue and handoff platform. Donors list surplus food with a pickup deadline. Rescue organisations claim batches from a board sorted by urgency. Volunteers collect the food, and a 4-digit receipt code (with a QR) verifies the handoff. Only verified handoffs count on the impact ledger.
 
+**Live demo:** https://buildurwebsite.vercel.app
+
 Built for the ROXTEN STUDIOS *Build Your Own Website* hackathon (November 2026).
 
 > **Prototype notice:** every donor, organisation, volunteer, batch and number in this app is **fictional demo data**. MealRelay is not a food-safety certification and has no affiliation with FSSAI, the Indian Food Sharing Alliance or any real organisation.

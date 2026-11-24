@@ -11,4 +11,4 @@
 | M6 Volunteer and verified handoff | DONE | Accept → collect → code/QR → hand over → org verifies. Wrong code rejected. Verified in the browser. |
 | M7 Impact | DONE | Completed-only metrics, estimate labelled. Updates after a rescue (verified). |
 | M8 Responsive QA, a11y | DONE (automated) | No horizontal overflow on 8 routes at 320/375/390/430/768 px. Labels, focus rings, skip link, reduced motion, native dialog. Still to do: a manual pass on a real phone after deployment. |
-| M9 Deploy and submit | BLOCKED (needs owner) | Needs a GitHub repo, a deployment and the Devpost form. The submitter's details go only in the form. |
+| M9 Deploy and submit | IN PROGRESS | Repo is public: https://github.com/ayushgade06/mealrelay. Live: https://buildurwebsite.vercel.app (returns 200 without login). Left: Devpost form, filled in by the owner. |
